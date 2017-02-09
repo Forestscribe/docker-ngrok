@@ -1,6 +1,8 @@
 # Note: The newer busybox:glibc is missing libpthread.so.0.
-FROM busybox:ubuntu-14.04
+FROM alpine
 MAINTAINER Werner Beroux <werner@beroux.com>
+
+run apk --no-cache add ca-certificates && update-ca-certificates
 
 # Install ngrok (latest official stable from https://ngrok.com/download).
 ADD https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip /ngrok.zip
